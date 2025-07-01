@@ -30,7 +30,7 @@ class F1HeroScene {
             0.1,
             1000
         );
-        this.camera.position.set(3, 1, 3);
+        this.camera.position.set(3, 1, 3.5);
 
         // Renderer setup
         this.renderer = new THREE.WebGLRenderer({ 
@@ -122,7 +122,7 @@ class F1HeroScene {
                 
                 // Scale and position the model (positioned further right, no frame constraint)
                 this.f1Model.scale.setScalar(0.002);
-                this.f1Model.position.set(3.5, 0, 0);
+                this.f1Model.position.set(4, 0, 0);
                 // Fix orientation - flip it right side up and show front initially
                 this.f1Model.rotation.x = 0;
                 this.f1Model.rotation.y = Math.PI;
@@ -135,13 +135,13 @@ class F1HeroScene {
                             if (Array.isArray(child.material)) {
                                 child.material.forEach(material => {
                                     material.wireframe = true;
-                                    material.color.setHex(0x808080); // Grey wireframe
+                                    material.color.setHex(0xffffff); // Subtle white wireframe
                                     material.transparent = true;
                                     material.opacity = 0;
                                 });
                             } else {
                                 child.material.wireframe = true;
-                                child.material.color.setHex(0x808080); // Grey wireframe
+                                child.material.color.setHex(0xffffff); // Subtle white wireframe
                                 child.material.transparent = true;
                                 child.material.opacity = 0;
                             }
@@ -151,6 +151,12 @@ class F1HeroScene {
 
                 this.scene.add(this.f1Model);
                 this.isModelLoaded = true;
+
+                // Show all elements after loading
+                document.querySelector('.hero-section h1').classList.add('visible');
+                document.querySelector('.hero-section p').classList.add('visible');
+                document.querySelector('.buttons').classList.add('visible');
+                document.querySelector('.applications-text').classList.add('visible');
             },
             (progress) => {
                 console.log('Loading progress:', (progress.loaded / progress.total * 100) + '%');
@@ -173,12 +179,12 @@ class F1HeroScene {
         
         // Slowly rotate the F1 model on Y axis
         if (this.f1Model) {
-            this.f1Model.rotation.y += 0.0025;
+            this.f1Model.rotation.y += 0.0005;
         }
         
         // Fade in the model after it's loaded
-        if (this.isModelLoaded && this.modelOpacity < 1) {
-            this.modelOpacity = Math.min(1, this.modelOpacity + 0.02);
+        if (this.isModelLoaded && this.modelOpacity < 0.4) {
+            this.modelOpacity = Math.min(0.4, this.modelOpacity + 0.01);
             this.f1Model.traverse((child) => {
                 if (child.isMesh) {
                     if (child.material) {
