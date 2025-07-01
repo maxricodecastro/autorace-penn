@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Geist', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    height: 100vh;
+    width: 50%;
+    pointer-events: none;
+}
+
+.hero-section h1, .hero-section p, .buttons {
+    opacity: 0;
+}
+
+.hero-section h1.visible, .hero-section p.visible, .buttons.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.typing-cursor {
+    border-right: 2px solid white;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    color: #ffffff;
+    min-height: 3.3rem;
+    display: inline-block;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    font-weight: 350;
+    margin-bottom: 48px;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    pointer-events: auto;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 16px 32px;
+    font-family: 'Geist', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-1px);
+}
+
+.canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#three-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        width: 100%;
+        padding: 40px 20px;
+        justify-content: flex-start;
+        padding-top: 80px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.2rem;
+        margin-bottom: 32px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 14px 24px;
+    }
+}
+
+.applications-text {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 300;
+    z-index: 10;
+} 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Racing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="applications-text">Fall 2025 Applications</div>
+        <div class="hero-section">
+            <h1 id="hero-title">Autonomous Racing</h1>
+            <p id="hero-subtitle">at The University of Pennsylvania</p>
+            <div class="buttons">
+                <a href="https://www.youtube.com/shorts/veuG2n4ESJM" target="_blank" class="btn-primary">Join today</a>
+                <button class="btn-secondary">Contact us</button>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="three-canvas"></canvas>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html> 
